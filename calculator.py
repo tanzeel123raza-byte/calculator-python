@@ -1,40 +1,50 @@
-import math
+# import math
+
+def addition(x, y):
+    return x+y
+
+def subtraction(x, y):
+    return x - y
+
+def multiplication(x, y):
+    return x*y
+
+def division(x, y):
+    if(y == 0):
+        return "Cannot divide  by zero"
+    return x/y
+
+def getNumber():
+    x = float(input("Enter your 1st number: "))
+    y = float(input("Enter your 2nd number: "))
+    return x, y
 
 while True:
-    print("For Addition(+) choose 1")
-    print("For Subtraction(-) choose 2")
-    print("For Multiplication(*) choose 3")
-    print("For Division(/) choose 4")
-    print("For Exit choose 5")
+    try:
+        choice = int(input("Enter your choice: "))
 
-    choice = int(input("Enter your choice: "))
+        if choice in (1, 2, 3, 4):
+            x, y = getNumber()
+
+    except ValueError:
+        print("Enter valid integer. Idiot! ")
+        continue
 
     if choice == 1:
-        x = float(input("Enter your number: "))
-        y = float(input("Etner your number: "))
-        print("answer= ", x+y)
+        print("Answer= ", addition(x, y))
 
     elif choice == 2:
-        x = float(input("Enter your number: "))
-        y = float(input("Etner your number: "))
-        print("asnwer= ", x-y)
+        print("Answer= ", subtraction(x, y))
 
     elif choice == 3:
-        x = float(input("Enter your number: "))
-        y = float(input("Etner your number: "))
-        print("answer= ", x*y)
+        print("Answer= ", multiplication(x, y))
 
     elif choice == 4:
-        x = float(input("Enter your number: "))
-        y = float(input("Etner your number: "))
-        if y == 0:
-            print("Y can't be 0")
-        else:
-            print("answer= ", x/y)
+        print("Answer= ", division(x, y))
 
     elif choice == 5:
-        print("No more calculations")
+        print("Calculation ended. ")
         break
 
     else:
-        print("Invalid operator")
+        print("Invalid choice. ")
