@@ -10,11 +10,10 @@ while True:
     if guess_number == target_number:
         print(f"Wow you got this. {target_number}")
         print(attempts)
+        break
 
     elif guess_number > target_number:
         print("Your number is greater than the target. ")
 
     else:
         print("Your number is less than the target.")
-
-    
