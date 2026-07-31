@@ -23,6 +23,8 @@ def power(x, y):
     return pow(x, y)
 
 def modulus(x, y):
+    if(y == 0):
+        return "y can't be zero(0). "
     return x % y
 
 def floorDivision(x, y):
@@ -65,7 +67,7 @@ while True:
             x, y = getNumber()
 
     except ValueError:
-        print("Enter valid integer. Idiot! ")
+        print("Enter valid integer. ")
         continue
 
     if choice == 1:
@@ -112,7 +114,7 @@ while True:
         z = int(input("Enter your number: "))
         answer = squareRoot(z)
         print("Answer= ", answer)
-        History.append(f"sprt({z}) = {answer}")
+        History.append(f"sqrt({z}) = {answer}")
 
     elif choice == 10:
         if not History:
