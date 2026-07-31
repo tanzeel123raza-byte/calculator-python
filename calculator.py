@@ -42,10 +42,7 @@ def getNumber():
     y = float(input("Enter your 2nd number: "))
     return x, y
 
-History = []
-
-while True:
-
+def showMenu():
     print("\n===== Calculator =====")
     print("1. Addition")
     print("2. Subtraction")
@@ -59,6 +56,10 @@ while True:
     print("10. Show History")
     print("11. Clear History")
     print("12. Exit")
+
+History = []
+
+while True:
         
     try:
         choice = int(input("Enter your choice: "))
