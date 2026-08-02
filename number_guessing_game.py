@@ -1,19 +1,24 @@
 import random
+import sys
 
-while True:
+## A function defined for game of number guessing.
 
-    target_number = random.randint(1, 100)
+def play_game(max_number):
+    """Play one round of the number guessing game."""
+
+    target_number = random.randint(1, max_number)
     attempts = 0
 
+## The main code of game how  it will work. 
     while True:  
         try:
-            guess_number = int(input("Enter your guess:- "))
-            if guess_number < 1 or guess_number > 100:
-                print("Enter number between 1 to 100. ")
+            guess_number = int(input(f"Enter your guess (1-{max_number}):- "))
+            if guess_number < 1 or guess_number > max_number:
+                print(f"Enter number between 1 to {max_number}. ")
                 continue
 
         except ValueError:
-            print("Enter the integer in range or valid integer. ")
+            print("Enter valid integer. ")
             continue
 
         attempts += 1
@@ -29,6 +34,35 @@ while True:
         else:
             print("Your number is less than the target.")
 
+## this code is here for choosing the level.
+while True:
+
+    print("\n===== Number Guessing Game =====")
+    print("1. Easy   (1-50)")
+    print("2. Medium (1-100)")
+    print("3. Hard   (1-500)")
+    print("4. Exit")
+
+    difficulty = input("Choose difficulty: ")
+
+    if difficulty == "1":
+        play_game(50)
+
+    elif difficulty == "2":
+        play_game(100)
+
+    elif difficulty == "3":
+        play_game(500)
+
+    elif difficulty == "4":
+        print("Thanks for playing!")
+        sys.exit()
+
+    else:
+        print("Invalid choice.")
+        continue
+
+## If you wnat to play again or not.
     while True:
         choice = input("Do you want to play again.. ? (y/n): ").lower()
 
@@ -37,7 +71,7 @@ while True:
 
         elif choice == "n":
             print("Thanks for playing!.. ")
-            exit()
+            sys.exit()
 
         else:
             print("Please enter y or n. ")
